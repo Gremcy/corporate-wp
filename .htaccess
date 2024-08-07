@@ -1,0 +1,296 @@
+# ######################################################################
+# # BLOCK WORDPRESS xmlrpc.php REQUESTS                                #
+# ######################################################################
+
+<Files xmlrpc.php>
+	order allow,deny
+	deny from all
+</Files>
+
+# ######################################################################
+# # MEDIA TYPES AND CHARACTER ENCODINGS                                #
+# ######################################################################
+
+# ----------------------------------------------------------------------
+# | Media types                                                        |
+# ----------------------------------------------------------------------
+
+<IfModule mod_mime.c>
+    # Data interchange
+    AddType application/atom+xml                        atom
+    AddType application/json                            json map topojson
+    AddType application/ld+json                         jsonld
+    AddType application/rss+xml                         rss
+    AddType application/geo+json                        geojson
+    AddType application/rdf+xml                         rdf
+    AddType application/xml                             xml
+    # JavaScript
+    AddType text/javascript                             js mjs
+    # Manifest files
+    AddType application/manifest+json                   webmanifest
+    AddType application/x-web-app-manifest+json         webapp
+    AddType text/cache-manifest                         appcache
+    # Media files
+    AddType audio/mp4                                   f4a f4b m4a
+    AddType audio/ogg                                   oga ogg opus
+    AddType image/bmp                                   bmp
+    AddType image/svg+xml                               svg svgz
+    AddType image/webp                                  webp
+    AddType video/mp4                                   f4v f4p m4v mp4
+    AddType video/ogg                                   ogv
+    AddType video/webm                                  webm
+    AddType video/x-flv                                 flv
+    # Serving `.ico` image files with a different media type
+    AddType image/x-icon                                cur ico
+    # WebAssembly
+    AddType application/wasm                            wasm
+    # Web fonts
+    AddType font/woff                                   woff
+    AddType font/woff2                                  woff2
+    AddType application/vnd.ms-fontobject               eot
+    AddType font/ttf                                    ttf
+    AddType font/collection                             ttc
+    AddType font/otf                                    otf
+    # Other
+    AddType application/octet-stream                    safariextz
+    AddType application/x-bb-appworld                   bbaw
+    AddType application/x-chrome-extension              crx
+    AddType application/x-opera-extension               oex
+    AddType application/x-xpinstall                     xpi
+    AddType text/calendar                               ics
+    AddType text/markdown                               markdown md
+    AddType text/vcard                                  vcard vcf
+    AddType text/vnd.rim.location.xloc                  xloc
+    AddType text/vtt                                    vtt
+    AddType text/x-component                            htc
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Character encodings                                                |
+# ----------------------------------------------------------------------
+
+AddDefaultCharset utf-8
+
+<IfModule mod_mime.c>
+    AddCharset utf-8 .appcache \
+                     .bbaw \
+                     .css \
+                     .htc \
+                     .ics \
+                     .js \
+                     .json \
+                     .manifest \
+                     .map \
+                     .markdown \
+                     .md \
+                     .mjs \
+                     .topojson \
+                     .vtt \
+                     .vcard \
+                     .vcf \
+                     .webmanifest \
+                     .xloc
+</IfModule>
+
+# ######################################################################
+# # WEB PERFORMANCE                                                    #
+# ######################################################################
+
+# ----------------------------------------------------------------------
+# | Compression                                                        |
+# ----------------------------------------------------------------------
+
+<IfModule mod_deflate.c>
+    <IfModule mod_setenvif.c>
+        <IfModule mod_headers.c>
+            SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+            RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+        </IfModule>
+    </IfModule>
+
+    <IfModule mod_filter.c>
+        AddOutputFilterByType DEFLATE "application/atom+xml" \
+                                      "application/javascript" \
+                                      "application/json" \
+                                      "application/ld+json" \
+                                      "application/manifest+json" \
+                                      "application/rdf+xml" \
+                                      "application/rss+xml" \
+                                      "application/schema+json" \
+                                      "application/geo+json" \
+                                      "application/vnd.ms-fontobject" \
+                                      "application/wasm" \
+                                      "application/x-font-ttf" \
+                                      "application/x-javascript" \
+                                      "application/x-web-app-manifest+json" \
+                                      "application/xhtml+xml" \
+                                      "application/xml" \
+                                      "font/eot" \
+                                      "font/opentype" \
+                                      "font/otf" \
+                                      "image/bmp" \
+                                      "image/svg+xml" \
+                                      "image/vnd.microsoft.icon" \
+                                      "text/cache-manifest" \
+                                      "text/calendar" \
+                                      "text/css" \
+                                      "text/html" \
+                                      "text/javascript" \
+                                      "text/plain" \
+                                      "text/markdown" \
+                                      "text/vcard" \
+                                      "text/vnd.rim.location.xloc" \
+                                      "text/vtt" \
+                                      "text/x-component" \
+                                      "text/x-cross-domain-policy" \
+                                      "text/xml"
+    </IfModule>
+
+    <IfModule mod_mime.c>
+        AddEncoding gzip              svgz
+    </IfModule>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Cache expiration                                                   |
+# ----------------------------------------------------------------------
+
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresDefault                                      "access plus 1 month"
+    # CSS
+    ExpiresByType text/css                              "access plus 1 year"
+    # Data interchange
+    ExpiresByType application/atom+xml                  "access plus 1 hour"
+    ExpiresByType application/rdf+xml                   "access plus 1 hour"
+    ExpiresByType application/rss+xml                   "access plus 1 hour"
+    ExpiresByType application/json                      "access plus 0 seconds"
+    ExpiresByType application/ld+json                   "access plus 0 seconds"
+    ExpiresByType application/schema+json               "access plus 0 seconds"
+    ExpiresByType application/geo+json                  "access plus 0 seconds"
+    ExpiresByType application/xml                       "access plus 0 seconds"
+    ExpiresByType text/calendar                         "access plus 0 seconds"
+    ExpiresByType text/xml                              "access plus 0 seconds"
+    # Favicon (cannot be renamed!) and cursor images
+    ExpiresByType image/vnd.microsoft.icon              "access plus 1 week"
+    ExpiresByType image/x-icon                          "access plus 1 week"
+    # HTML
+    ExpiresByType text/html                             "access plus 0 seconds"
+    # JavaScript
+    ExpiresByType application/javascript                "access plus 1 year"
+    ExpiresByType application/x-javascript              "access plus 1 year"
+    ExpiresByType text/javascript                       "access plus 1 year"
+    # Manifest files
+    ExpiresByType application/manifest+json             "access plus 1 week"
+    ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+    ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+    # Markdown
+    ExpiresByType text/markdown                         "access plus 0 seconds"
+    # Media files
+    ExpiresByType audio/ogg                             "access plus 1 month"
+    ExpiresByType image/bmp                             "access plus 1 month"
+    ExpiresByType image/gif                             "access plus 1 month"
+    ExpiresByType image/jpeg                            "access plus 1 month"
+    ExpiresByType image/png                             "access plus 1 month"
+    ExpiresByType image/svg+xml                         "access plus 1 month"
+    ExpiresByType image/webp                            "access plus 1 month"
+    ExpiresByType video/mp4                             "access plus 1 month"
+    ExpiresByType video/ogg                             "access plus 1 month"
+    ExpiresByType video/webm                            "access plus 1 month"
+    # WebAssembly
+    ExpiresByType application/wasm                      "access plus 1 year"
+    # Web fonts
+    ExpiresByType font/collection                       "access plus 1 month"
+    ExpiresByType application/vnd.ms-fontobject         "access plus 1 month"
+    ExpiresByType font/eot                              "access plus 1 month"
+    ExpiresByType font/opentype                         "access plus 1 month"
+    ExpiresByType font/otf                              "access plus 1 month"
+    ExpiresByType application/x-font-ttf                "access plus 1 month"
+    ExpiresByType font/ttf                              "access plus 1 month"
+    ExpiresByType application/font-woff                 "access plus 1 month"
+    ExpiresByType application/x-font-woff               "access plus 1 month"
+    ExpiresByType font/woff                             "access plus 1 month"
+    ExpiresByType application/font-woff2                "access plus 1 month"
+    ExpiresByType font/woff2                            "access plus 1 month"
+    # Other
+    ExpiresByType text/x-cross-domain-policy            "access plus 1 week"
+</IfModule>
+
+# ######################################################################
+# # REDIRECTS                                                          #
+# ######################################################################
+
+Redirect 301 /company-profile/ https://hcmconsult.com/about-us/
+Redirect 301 /firmenprofil/?lang=de https://hcmconsult.com/de/about-us/
+Redirect 301 /soziales-engagement/?lang=de https://hcmconsult.com/about-us/
+
+Redirect 301 /competencies/ https://hcmconsult.com/services/
+Redirect 301 /kompetenzen/?lang=de https://hcmconsult.com/de/services/
+Redirect 301 /change-management/ https://hcmconsult.com/services/change-management/
+Redirect 301 /change-management/?lang=de https://hcmconsult.com/de/services/change-management/
+Redirect 301 /cloud-implementation/ https://hcmconsult.com/services/cloud-implementation/
+Redirect 301 /cloud-implementation/?lang=de https://hcmconsult.com/de/services/cloud-implementation/
+Redirect 301 /data-migration-interfaces-testing/ https://hcmconsult.com/services/data-migration/
+Redirect 301 /data-migration-interfaces-testing/?lang=de https://hcmconsult.com/de/services/data-migration/
+Redirect 301 /digital-transformation/ https://hcmconsult.com/services/digital-transformation/
+Redirect 301 /digital-transformation/?lang=de https://hcmconsult.com/de/services/digital-transformation/
+Redirect 301 /hr-transformation/ https://hcmconsult.com/services/hr-transformation/
+Redirect 301 /hr-transformation/?lang=de https://hcmconsult.com/de/services/hr-transformation/
+Redirect 301 /hr-service-organisation-modelling/ https://hcmconsult.com/services/hr-service-organization-modelling/
+Redirect 301 /hr-service-organisation-modelling/?lang=de https://hcmconsult.com/de/services/hr-service-organization-modelling/
+Redirect 301 /information-security/ https://hcmconsult.com/services/information-security-management/
+Redirect 301 /informationssicherheit/?lang=de https://hcmconsult.com/de/services/information-security-management/
+Redirect 301 /process-improvement/ https://hcmconsult.com/services/process-improvement/
+Redirect 301 /process-improvement/?lang=de https://hcmconsult.com/de/services/process-improvement/
+Redirect 301 /organizational-and-leadership-development/ https://hcmconsult.com/services/organizational-and-leadership-development/
+Redirect 301 /organizational-and-leadership-development/?lang=de https://hcmconsult.com/de/services/organizational-and-leadership-development/
+Redirect 301 /project-management/ https://hcmconsult.com/services/project-management/
+Redirect 301 /project-management/?lang=de https://hcmconsult.com/de/services/project-management/
+Redirect 301 /validation-of-computerized-systems-gxp/ https://hcmconsult.com/services/validation-of-computorized-system/
+Redirect 301 /validation-of-computerized-systems-gxp/?lang=de https://hcmconsult.com/de/services/validation-of-computorized-system/
+Redirect 301 /project-coaching/ https://hcmconsult.com/services/project-coaching/
+Redirect 301 /projekt-coaching/?lang=de https://hcmconsult.com/de/services/project-coaching/
+Redirect 301 /training/ https://hcmconsult.com/services/training/
+Redirect 301 /training/?lang=de https://hcmconsult.com/de/services/training/
+
+Redirect 301 /references/ https://hcmconsult.com/projects/
+Redirect 301 /referenzen/?lang=de https://hcmconsult.com/de/projects/
+
+Redirect 301 /careers/ https://hcmconsult.com/join-our-team/
+Redirect 301 /karriere/?lang=de https://hcmconsult.com/de/join-our-team/
+
+Redirect 301 /the-future-of-artificial-intelligence/ https://hcmconsult.com/blog/the-future-of-artificial-intelligence/
+Redirect 301 /the-future-of-artificial-intelligence/?lang=de https://hcmconsult.com/de/blog/the-future-of-artificial-intelligence/
+Redirect 301 /artificial-intelligence-in-our-present-lives/ https://hcmconsult.com/blog/arti-cial-intelligence-in-our-present-lives/
+Redirect 301 /artificial-intelligence-in-our-present-lives/?lang=de https://hcmconsult.com/de/blog/arti-cial-intelligence-in-our-present-lives/
+Redirect 301 /the-development-of-artificial-intelligence/ https://hcmconsult.com/blog/artificial-intelligence-the-development-over-the-last-century/
+Redirect 301 /the-development-of-artificial-intelligence/?lang=de https://hcmconsult.com/de/blog/artificial-intelligence-the-development-over-the-last-century/
+Redirect 301 /corona-pandemic-an-example-of-challenges-in-change-management/ https://hcmconsult.com/blog/
+Redirect 301 /corona-pandemie/?lang=de https://hcmconsult.com/de/blog/
+Redirect 301 /remote-work-doing-it-right/ https://hcmconsult.com/blog/remote-work/
+Redirect 301 /remote-work-doing-it-right/?lang=de https://hcmconsult.com/de/blog/remote-work/
+Redirect 301 /remote-work-no-way-back/ https://hcmconsult.com/blog/remote-work-no-way-back/
+Redirect 301 /remote-work-no-way-back/?lang=de https://hcmconsult.com/de/blog/remote-work-no-way-back/
+
+Redirect 301 /contact/ https://hcmconsult.com
+Redirect 301 /kontakt/?lang=de https://hcmconsult.com/de/
+
+# ######################################################################
+# # WORDPRESS                                                          #
+# ######################################################################
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress

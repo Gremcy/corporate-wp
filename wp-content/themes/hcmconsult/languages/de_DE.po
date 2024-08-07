@@ -1,0 +1,148 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: hcmconsult\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-15 14:56+0000\n"
+"PO-Revision-Date: 2022-12-12 23:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.2; wp-6.0.1\n"
+"X-Domain: hcmconsult"
+
+msgid "Accept"
+msgstr ""
+
+msgid "Active"
+msgstr ""
+
+msgid "ADDRESS"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "Always Active"
+msgstr ""
+
+msgid "Blog"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "close"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "E-mail"
+msgstr ""
+
+msgid "Field is required and cannot be empty"
+msgstr ""
+
+msgid "fill error"
+msgstr ""
+
+msgid "Full Name"
+msgstr ""
+
+msgid "GET IN"
+msgstr ""
+
+msgid "Get in touch"
+msgstr "Kontakt "
+
+msgid "Go back"
+msgstr ""
+
+msgid "I am looking for"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "LET’S"
+msgstr ""
+
+msgid "Manage my preferences"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "More about us"
+msgstr "Mehr über uns"
+
+msgid "More articles in this series"
+msgstr ""
+
+msgid "Page is not found"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Please, enter your e-mail correctly"
+msgstr ""
+
+msgid "Please, enter your name and surname"
+msgstr ""
+
+msgid "Please, write down your message"
+msgstr ""
+
+msgid "Projects"
+msgstr ""
+
+msgid "Published"
+msgstr ""
+
+msgid "Read"
+msgstr "Lesen Sie mehr "
+
+msgid "Reject Cookies"
+msgstr ""
+
+msgid "Related Projects"
+msgstr ""
+
+msgid "Save my preferences"
+msgstr ""
+
+msgid "See More"
+msgstr ""
+
+msgid "See more projects"
+msgstr "Weitere Projekte "
+
+msgid "Send"
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "TOUCH"
+msgstr ""
+
+msgid "Upload Cover Letter"
+msgstr ""
+
+msgid "Upload CV"
+msgstr ""
+
+msgid "Wait"
+msgstr ""
+
+msgid "Watch video"
+msgstr ""

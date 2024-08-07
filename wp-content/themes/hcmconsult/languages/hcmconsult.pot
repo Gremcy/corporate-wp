@@ -1,0 +1,152 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: hcmconsult\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-10 12:22+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.2; wp-6.0\n"
+"X-Domain: hcmconsult"
+
+msgid "close"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "More articles in this series"
+msgstr ""
+
+msgid "See More"
+msgstr ""
+
+msgid "Wait"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "I am looking for"
+msgstr ""
+
+msgid "Get in touch"
+msgstr ""
+
+msgid "Related Projects"
+msgstr ""
+
+msgid "See more projects"
+msgstr ""
+
+msgid "More about us"
+msgstr ""
+
+msgid "ADDRESS"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "E-mail"
+msgstr ""
+
+msgid "Page is not found"
+msgstr ""
+
+msgid "Go back"
+msgstr ""
+
+msgid "Full Name"
+msgstr ""
+
+msgid "LET’S"
+msgstr ""
+
+msgid "GET IN"
+msgstr ""
+
+msgid "TOUCH"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "fill error"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Upload CV"
+msgstr ""
+
+msgid "Upload Cover Letter"
+msgstr ""
+
+msgid "Accept"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Please, enter your name and surname"
+msgstr ""
+
+msgid "Please, enter your e-mail correctly"
+msgstr ""
+
+msgid "Please, write down your message"
+msgstr ""
+
+msgid "Field is required and cannot be empty"
+msgstr ""
+
+msgid "Watch video"
+msgstr ""
+
+msgid "Published"
+msgstr ""
+
+msgid "Reject Cookies"
+msgstr ""
+
+msgid "Manage my preferences"
+msgstr ""
+
+msgid "Save my preferences"
+msgstr ""
+
+msgid "Active"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "Always Active"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "Projects"
+msgstr ""
+
+msgid "Blog"
+msgstr ""
+
+msgid "Team"
+msgstr ""
